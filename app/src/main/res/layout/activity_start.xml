@@ -23,7 +23,8 @@
         android:textSize="40sp"
         android:textStyle="bold"
         android:gravity="center"
-        android:textColor="@color/black"/>
+        android:textColor="@color/black"
+        android:fontFamily="casual"/>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/startActivity_BTN_start"
@@ -36,7 +37,8 @@
         android:text="START"
         android:textSize="30sp"
         android:textColor="@color/yellow"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        android:fontFamily="casual"/>
 
 
 
