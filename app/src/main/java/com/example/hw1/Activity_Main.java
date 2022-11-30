@@ -45,7 +45,6 @@ public class Activity_Main extends AppCompatActivity {
         @Override
         public void run() {
             handler.postDelayed(this, DELAY);
-            //secondlyFunction();
         }
     };*/
 
