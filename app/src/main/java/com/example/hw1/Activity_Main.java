@@ -71,7 +71,6 @@ public class Activity_Main extends AppCompatActivity {
 
    private void initView() {
        insertImageView();
-       updateTimeUI();
     }
 
 
@@ -148,8 +147,8 @@ public class Activity_Main extends AppCompatActivity {
         });
     }
 
-    private void updateTimeUI(){
-        Timer timer = new Timer();
+    private void startTimerUi(){
+        timer = new Timer();
         timer.scheduleAtFixedRate(
                 new TimerTask() {
                     @Override
@@ -181,24 +180,22 @@ public class Activity_Main extends AppCompatActivity {
         }
     }
 
-
-
-    /*@Override
-    protected void onStart() {
-        super.onStart();
+    @Override
+    protected void onResume() {
+        super.onResume();
+        startTimerUi();
     }
 
     @Override
     protected void onStop() {
         super.onStop();
+        timer.cancel();
     }
 
-    private void startCounting() {
-        handler.postDelayed(runnable, DELAY);
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        timer.cancel();
     }
-
-    private void stopCounting() {
-        handler.removeCallbacks(runnable);
-    }*/
 
 }
