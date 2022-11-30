@@ -25,13 +25,9 @@ public class Activity_Game {
     private int wrong = 0;
     private int currentPosition = 1;
 
-    //private int score = 0;
-    //private int lives;
 
     private Context context;
-    //private LinearLayout.LayoutParams linearParam = null;
     private ArrayList<ShapeableImageView> arrOfMouth;
-    //private ArrayList<LinearLayout> arrOfLayout;
     private ShapeableImageView[][] matOfPois;
     private int[][] visible;
     private LinearLayout panel_col;
@@ -48,7 +44,6 @@ public class Activity_Game {
         random = new Random();
         this.context = context;
         arrOfMouth = new ArrayList<>(NUM_OF_COL);
-        //arrOfLayout = new ArrayList(NUM_OF_COL);
         this.activityMain = activityMain;
         this.countStaticDown = countStaticDown;
         matOfPois = new ShapeableImageView[NUM_OF_POIS_ROW][NUM_OF_COL];
@@ -84,24 +79,6 @@ public class Activity_Game {
         return visible;
     }
 
-    /*public LinearLayout.LayoutParams getLinearParam() {
-        return linearParam;
-    }
-
-    public Activity_Game setLinearParam(LinearLayout.LayoutParams linearParam) {
-        this.linearParam = linearParam;
-        return this;
-    }*/
-
-    /*public ArrayList<LinearLayout> getArrOfLayout() {
-        return arrOfLayout;
-    }
-
-    public Activity_Game setArrOfLayout(ArrayList<LinearLayout> arrOfLayout) {
-        this.arrOfLayout = arrOfLayout;
-        return this;
-    }*/
-
     public LinearLayout getPanel_col() {
         return panel_col;
     }
@@ -115,25 +92,6 @@ public class Activity_Game {
         return context;
     }
 
-
-    /*public int getScore() {
-        return score;
-    }
-
-    public Activity_Game setScore(int score) {
-        this.score = score;
-        return this;
-    }
-
-    public int getLives() {
-        return lives;
-    }
-
-    public Activity_Game setLives(int lives) {
-        this.lives = lives;
-        return this;
-    }*/
-
     public ArrayList<ShapeableImageView> getArrOfMouth() {
         return arrOfMouth;
     }
@@ -143,6 +101,7 @@ public class Activity_Game {
         return this;
     }
 
+
     public int getCurrentPosition() {
         return currentPosition;
     }
@@ -151,39 +110,6 @@ public class Activity_Game {
         this.currentPosition = currentPosition;
         return this;
     }
-
-    /*public void insertImageView() {
-        for (int i = 0; i < NUM_OF_COL; i++) {
-            LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 0, 1);
-            ShapeableImageView mouth = new ShapeableImageView(context);
-            mouth.setId(i + 1);
-            mouth.setImageResource(R.drawable.openmouth);
-            if (i != 1)
-                mouth.setVisibility(View.INVISIBLE);
-            arrOfMouth.add(mouth);
-            LinearLayout linearL = new LinearLayout(context);
-            linearL.setGravity(Gravity.BOTTOM);
-            linearL.setOrientation(LinearLayout.VERTICAL);
-            linearL.setId(i + 1);
-            linearParam = new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.MATCH_PARENT, 1);
-            insertPoision(i, linearL);
-            arrOfLayout.add(linearL);
-            arrOfLayout.get(i).addView(mouth, lp);
-            panel_col.addView(linearL, linearParam);
-        }
-    }
-
-    public void insertPoision(int i, LinearLayout linearL) {
-        for (int j = 0; j < NUM_OF_POIS_ROW; j++) {
-            ShapeableImageView pois = new ShapeableImageView(context);
-            pois.setId(View.generateViewId());
-            pois.setImageResource(R.drawable.poison3);
-            pois.setVisibility(View.INVISIBLE);
-            pois.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 0, 1));
-            matOfPois[j][i] = pois;
-            linearL.addView(pois);
-        }
-    }*/
 
     public void update() {
         checkIfEatPoision();
@@ -208,10 +134,13 @@ public class Activity_Game {
     public void checkIfEatPoision() {
         if (visible[NUM_OF_POIS_ROW - 1][currentPosition] == 1) {
             wrong++;
+            arrOfMouth.get(currentPosition).setImageResource(R.drawable.death);
             toast.show();
             vibrator.vibrate(VibrationEffect.createOneShot(500, VibrationEffect.DEFAULT_AMPLITUDE));
         }
+        else
+            arrOfMouth.get(currentPosition).setImageResource(R.drawable.openmouth);
+
     }
 }
-
 

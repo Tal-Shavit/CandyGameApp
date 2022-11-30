@@ -31,6 +31,8 @@ public class Activity_Main extends AppCompatActivity {
     private ExtendedFloatingActionButton main_FAB_right;
     private LinearLayout panel_col;
 
+    private ShapeableImageView mouth;
+
     private LinearLayout.LayoutParams linearParam = null;
     private ArrayList<LinearLayout> arrOfLayout;
 
@@ -68,7 +70,6 @@ public class Activity_Main extends AppCompatActivity {
 
 
    private void initView() {
-       //game.insertImageView();
        insertImageView();
        updateTimeUI();
     }
@@ -88,7 +89,8 @@ public class Activity_Main extends AppCompatActivity {
     public void insertImageView() {
         for (int i = 0; i < game.getNUM_OF_COL(); i++) {
             LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 0, 1);
-            ShapeableImageView mouth = new ShapeableImageView(context);
+            //ShapeableImageView mouth = new ShapeableImageView(context);
+            mouth = new ShapeableImageView(context);
             mouth.setId(i + 1);
             mouth.setImageResource(R.drawable.openmouth);
             if (i != 1)
@@ -103,8 +105,10 @@ public class Activity_Main extends AppCompatActivity {
             arrOfLayout.add(linearL);
             arrOfLayout.get(i).addView(mouth, lp);
             panel_col.addView(linearL, linearParam);
+
         }
     }
+
 
     public void insertPoision(int i, LinearLayout linearL) {
         for (int j = 0; j < game.getNUM_OF_POIS_ROW(); j++) {
@@ -123,7 +127,7 @@ public class Activity_Main extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 int myPosition = game.getCurrentPosition();
-                if(game.getArrOfMouth().get(2).getVisibility() != View.VISIBLE){
+                if(game.getArrOfMouth().get(game.getNUM_OF_COL()-1).getVisibility() != View.VISIBLE){
                     game.getArrOfMouth().get(myPosition + 1).setVisibility(View.VISIBLE);
                     game.getArrOfMouth().get(myPosition).setVisibility(View.INVISIBLE);
                     game.setCurrentPosition(myPosition + 1);
@@ -163,32 +167,30 @@ public class Activity_Main extends AppCompatActivity {
     }
 
     private void updateUI() {
-       int visible[][] = game.getVisible();
+        int visible[][] = game.getVisible();
         for (int i = 0; i < game.getNUM_OF_POIS_ROW(); i++) {
             for (int j = 0; j < game.getNUM_OF_COL(); j++) {
-                if(visible[i][j] == 1)
+                if (visible[i][j] == 1)
                     game.getMatOfPois()[i][j].setVisibility(View.VISIBLE);
                 else
                     game.getMatOfPois()[i][j].setVisibility(View.INVISIBLE);
             }
         }
-       if(game.getWrong()>0 && game.getWrong()<=3)
-        {
-            main_IMG_lips[main_IMG_lips.length-game.getWrong()].setVisibility(View.INVISIBLE);
+        if (game.getWrong() > 0 && game.getWrong() <= 3) {
+            main_IMG_lips[main_IMG_lips.length - game.getWrong()].setVisibility(View.INVISIBLE);
         }
     }
+
 
 
     /*@Override
     protected void onStart() {
         super.onStart();
-        startCounting();
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        stopCounting();
     }
 
     private void startCounting() {
