@@ -53,7 +53,7 @@ public class Activity_Main extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        toast = Toast.makeText(this, "IT'S A POISION! " , Toast.LENGTH_SHORT);
+        toast = Toast.makeText(this, "IT'S A POISON! " , Toast.LENGTH_SHORT);
         Vibrator vibrator = (Vibrator)getSystemService(Context.VIBRATOR_SERVICE);
         context = this;
 
