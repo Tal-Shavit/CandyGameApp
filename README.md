@@ -2,7 +2,7 @@
 
 # Game instructions
 You are a mouth and need to escape from the poisons.
-If you ate a poison' you lose a life.
+If you ate a poison you lose a life.
 
 # How To Play
 Move left and right to avoid a poison
