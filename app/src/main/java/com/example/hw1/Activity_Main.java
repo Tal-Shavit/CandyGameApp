@@ -99,7 +99,6 @@ public class Activity_Main extends AppCompatActivity {
         arrOfLayout = new ArrayList(game.getNUM_OF_COL());
         initView();
         isBtnOrSnr();
-
     }
 
     private void initView() {

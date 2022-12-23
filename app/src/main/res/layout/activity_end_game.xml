@@ -31,17 +31,32 @@
         android:fontFamily="casual"
         android:text="TextView" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/EndActivity_BTN_saveScore"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="SAVE SCORE"
+        android:fontFamily="casual"
+        android:textSize="28sp"
+        android:textColor="@color/pink"
+        android:textStyle="bold"
+        android:layout_below="@+id/EndActivity_LBL_score"
+        android:layout_centerHorizontal="true"
+        android:backgroundTint="@color/lightblue"
+        android:layout_marginEnd="10dp"
+        />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
         android:orientation="horizontal"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="10dp">
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/EndActivity_BTN_records"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="Records"
             android:fontFamily="casual"
@@ -58,8 +73,8 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/EndActivity_BTN_start"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="START OVER"
             android:fontFamily="casual"

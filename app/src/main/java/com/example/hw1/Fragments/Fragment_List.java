@@ -1,6 +1,7 @@
 package com.example.hw1.Fragments;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.hw1.Interfaces.CallBack_Location;
+import com.example.hw1.Interfaces.RecyclerViewInterface;
 import com.example.hw1.Models.DataBase;
 import com.example.hw1.Models.UserItems;
 import com.example.hw1.MySP;
@@ -21,7 +23,7 @@ import com.google.gson.Gson;
 
 import java.util.ArrayList;
 
-public class Fragment_List extends Fragment {
+public class Fragment_List extends Fragment implements RecyclerViewInterface {
 
     private DataBase newDb2;
     private RecyclerView fragmentList_RV_records;
@@ -29,7 +31,7 @@ public class Fragment_List extends Fragment {
     private RecorsAdapter recAdapter;
 
     protected View view;
-    private ArrayList<UserItems> userItemsArrayList = new ArrayList<>();
+    //private ArrayList<UserItems> userItemsArrayList = new ArrayList<>();
     private ArrayList<String> names = new ArrayList<>();
     private ArrayList<Integer> scores = new ArrayList<>();
 
@@ -56,16 +58,16 @@ public class Fragment_List extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-
         dataInitialize();
         findViews(view);
         initRecycler();
+
     }
 
     private void initRecycler() {
         fragmentList_RV_records.setLayoutManager(new LinearLayoutManager(getContext()));//,LinearLayoutManager.VERTICAL,false
         fragmentList_RV_records.setHasFixedSize(true);
-        recAdapter = new RecorsAdapter(getContext(),userItemsArrayList,callBack_location);
+        recAdapter = new RecorsAdapter(getContext(),newDb2.getUserItems(),this);
         fragmentList_RV_records.setAdapter(recAdapter);
         recAdapter.notifyDataSetChanged();
     }
@@ -78,21 +80,15 @@ public class Fragment_List extends Fragment {
         if(newDb2 == null){
             newDb2 = new DataBase();
         }
-
-        if(newDb2 != null){
-            for (int i = 0; i < newDb2.getUserItems().size(); i++) {
-                names.add(newDb2.getUserItems().get(i).getName());
-                scores.add(newDb2.getUserItems().get(i).getScore());
-                double lat = newDb2.getUserItems().get(i).getLat();
-                double lon = newDb2.getUserItems().get(i).getLon();
-                userItems = new UserItems(names.get(i),scores.get(i),lat,lon);
-                userItemsArrayList.add(userItems);
-            }
-        }
     }
 
     private void findViews(View view) {
         fragmentList_RV_records = view.findViewById(R.id.fragmentList_RV_records);
+    }
+
+    @Override
+    public void onItemClick(int position) {
+        callBack_location.locationReady(newDb2.getUserItems().get(position));
     }
 }
 

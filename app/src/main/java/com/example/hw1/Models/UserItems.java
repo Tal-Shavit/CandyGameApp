@@ -2,16 +2,13 @@ package com.example.hw1.Models;
 
 public class UserItems {
 
-    private String name;
-    private int score;
-    private double lat;
-    private double lon;
+    private String name="";
+    private int score=0;
+    private double lat=0.0;
+    private double lon=0.0;
 
-    public UserItems(String name, int score, double lat, double lon) {
-        this.name = name;
-        this.score = score;
-        this.lat = lat;
-        this.lon = lon;
+    public UserItems() {
+
     }
 
     public String getName() {
