@@ -15,8 +15,8 @@ public class Activity_Start extends AppCompatActivity {
 
     private MaterialButton startActivity_BTN_start;
     private MaterialButton startActivity_BTN_records;
-    private SwitchMaterial startActivity_SWC_speed;
-    private SwitchMaterial startActivity_SWC_state;
+    private Switch startActivity_SWC_speed;
+    private Switch startActivity_SWC_state;
     private EditText startActivity_TXT_name;
 
     @Override

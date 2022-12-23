@@ -4,7 +4,7 @@
     <color name="purple_500">#CA3DBC</color>
     <color name="purple_700">#FF3700B3</color>
     <color name="teal_200">#80DFD5</color>
-    <color name="teal_700">#FF018786</color>
+    <color name="teal_700">#019F9F</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="lightpink">#F8BBD0</color>
@@ -15,6 +15,9 @@
     <color name="yellow">#F9FF22</color>
     <color name="pink">#EC407A</color>
     <color name="pink2">#E67299</color>
+    <color name="green2">#26D130</color>
+
+
 
 
 </resources>

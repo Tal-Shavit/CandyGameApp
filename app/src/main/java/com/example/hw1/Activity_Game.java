@@ -144,18 +144,18 @@ public class Activity_Game {
             int randManyObject = (int) (Math.random() * (3 - 1 + 1) + 1);
             ; //how many object down 1-3
             if (randManyObject == 1) {
-                visible[0][rand1] = (int) (Math.random() * (6 - 1 + 1) + 1); //pois 1 or candy 2/3/4
+                visible[0][rand1] = (int) (Math.random() * (6 - 1 + 1) + 1); //pois or candy
             }
             if (randManyObject == 2) {
-                visible[0][rand1] = (int) (Math.random() * (6 - 1 + 1) + 1); //pois 1 or candy 2/3/4
+                visible[0][rand1] = (int) (Math.random() * (6 - 1 + 1) + 1); //pois or candy
                 if (rand2 != rand1)
-                    visible[0][rand2] = (int) (Math.random() * (6 - 1 + 1) + 1); //pois 1 or candy 2/3/4
+                    visible[0][rand2] = (int) (Math.random() * (6 - 1 + 1) + 1); //pois or candy
             }
             if (randManyObject == 3) {
-                visible[0][rand1] = (int) (Math.random() * (6 - 1 + 1) + 1); //pois 1 or candy 2/3/4
+                visible[0][rand1] = (int) (Math.random() * (6 - 1 + 1) + 1); //pois or candy
                 if ((rand2 != rand1) && (rand3 != rand2)) {
-                    visible[0][rand2] = (int) (Math.random() * (6 - 1 + 1) + 1); //pois 1 or candy 2/3/4
-                    visible[0][rand3] = (int) (Math.random() * (6 - 1 + 1) + 1); //pois 1 or candy 2/3/4
+                    visible[0][rand2] = (int) (Math.random() * (6 - 1 + 1) + 1); //pois or candy
+                    visible[0][rand3] = (int) (Math.random() * (6 - 1 + 1) + 1); //pois or candy
                 }
             }
             countDown = 0;
@@ -180,9 +180,11 @@ public class Activity_Game {
         if (visible[NUM_OF_POIS_ROW - 1][currentPosition] == 2 || visible[NUM_OF_POIS_ROW - 1][currentPosition] == 3
         ||visible[NUM_OF_POIS_ROW - 1][currentPosition] == 4 || visible[NUM_OF_POIS_ROW - 1][currentPosition] == 6) {
             score += 10;
+            //activityMain.updateLive();
             arrOfMouth.get(currentPosition).setImageResource(R.drawable.lips);
             makeSound(R.raw.candysound);
             toast2.show();
+
         }
     }
 

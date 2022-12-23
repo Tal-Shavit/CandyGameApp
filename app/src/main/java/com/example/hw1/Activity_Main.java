@@ -103,7 +103,7 @@ public class Activity_Main extends AppCompatActivity {
     }
 
     private void initView() {
-       insertImageView();
+        insertImageView();
     }
 
 
@@ -186,8 +186,8 @@ public class Activity_Main extends AppCompatActivity {
                 game.getArrOfMouth().get(i).setVisibility(View.INVISIBLE);
             else
                 game.getArrOfMouth().get(i).setVisibility(View.VISIBLE);
-
         }
+        game.setCurrentPosition(curPos);
     }
 
 
@@ -239,8 +239,8 @@ public class Activity_Main extends AppCompatActivity {
 
             }
         }
-
         main_TXT_score.setText(""+game.getScore());
+
     }
 
     public void updateLive(){
@@ -250,6 +250,7 @@ public class Activity_Main extends AppCompatActivity {
         if(game.isLose()){
             openEndScreen(name,game.getScore());
         }
+
     }
 
     public void isBtnOrSnr(){

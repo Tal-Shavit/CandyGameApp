@@ -11,7 +11,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
-        android:src="@drawable/pinkbackground3" />
+        android:src="@drawable/rainbow" />
+<!--    android:src="@drawable/pinkbackground3" />-->
 
     <TextView
         android:layout_width="wrap_content"
@@ -26,8 +27,7 @@
         android:textColor="@color/black"
         android:fontFamily="casual"/>
 
-
-        <com.google.android.material.switchmaterial.SwitchMaterial
+        <Switch
             android:id="@+id/startActivity_SWC_speed"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -44,10 +44,10 @@
             android:textOn="Fast"
             android:textStyle="bold"
             android:thumbTint="@color/teal_700"
-            android:trackTint="@color/pink" />
+            android:trackTint="@color/teal_700" />
 
 
-        <com.google.android.material.switchmaterial.SwitchMaterial
+        <Switch
             android:id="@+id/startActivity_SWC_state"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -64,8 +64,8 @@
             android:textOff="Button"
             android:textOn="Sensor"
             android:textStyle="bold"
-            android:thumbTint="@color/pink"
-            android:trackTint="@color/teal_700" />
+            android:thumbTint="@color/green2"
+            android:trackTint="@color/green2" />
 
 
         <EditText
@@ -79,7 +79,7 @@
             android:layout_marginTop="480dp"
             android:layout_centerHorizontal="true"
             android:fontFamily="casual"
-            android:hint="type your name here"
+            android:hint="TYPE YOUR NAME HERE"
             android:inputType="textPersonName|textCapWords"
             android:textColorHint="@color/black"
             android:textSize="30sp"
@@ -121,7 +121,7 @@
             android:textSize="28sp"
             android:textColor="@color/pink"
             android:textStyle="bold"
-            android:backgroundTint="@color/lightblue"
+            android:backgroundTint="@color/yellow"
             android:layout_marginEnd="10dp"
             />
 
