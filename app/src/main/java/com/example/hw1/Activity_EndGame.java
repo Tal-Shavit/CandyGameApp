@@ -8,13 +8,12 @@ import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.os.Binder;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
 import com.example.hw1.Models.DataBase;
+import com.example.hw1.Models.MySP;
 import com.example.hw1.Models.UserItems;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textview.MaterialTextView;

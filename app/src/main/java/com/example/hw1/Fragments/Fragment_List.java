@@ -1,7 +1,6 @@
 package com.example.hw1.Fragments;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,7 +15,7 @@ import com.example.hw1.Interfaces.CallBack_Location;
 import com.example.hw1.Interfaces.RecyclerViewInterface;
 import com.example.hw1.Models.DataBase;
 import com.example.hw1.Models.UserItems;
-import com.example.hw1.MySP;
+import com.example.hw1.Models.MySP;
 import com.example.hw1.R;
 import com.example.hw1.RecorsAdapter;
 import com.google.gson.Gson;
