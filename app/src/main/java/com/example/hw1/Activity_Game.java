@@ -166,6 +166,7 @@ public class Activity_Game {
         if (visible[NUM_OF_POIS_ROW - 1][currentPosition] == 1 || visible[NUM_OF_POIS_ROW - 1][currentPosition] == 5) {
             wrong++;
             //score-=10;
+            //
             activityMain.updateLive();
             arrOfMouth.get(currentPosition).setImageResource(R.drawable.death);
             toast1.show();
