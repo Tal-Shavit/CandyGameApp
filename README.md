@@ -8,7 +8,7 @@ If you ate a poison you lose a life, but if you ate candy your score will added 
 Move left and right to avoid a poison and collect the candy
 You have 2 options.
 
-(video to show what happend if you don't fill your name)
+(video to show what happens if you don't fill your name)
 
 
 https://user-images.githubusercontent.com/117349966/209446581-0c8396e1-fb13-4e77-8587-1adf2f5e14f0.mp4
