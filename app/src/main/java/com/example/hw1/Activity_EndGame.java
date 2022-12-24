@@ -32,10 +32,10 @@ public class Activity_EndGame extends AppCompatActivity {
 
     private String name;
     private int score;
-    private Context context;
-    private double lat;//////////
-    private double lon;//////////
+    private double lat;
+    private double lon;
     private DataBase newDb;
+    SimpleLocation location;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

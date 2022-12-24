@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.AccelerateInterpolator;
 import android.widget.ImageView;
@@ -74,4 +75,21 @@ public class Activity_Splash extends AppCompatActivity {
         ActivitySplash_IMG_mouth = findViewById(R.id.ActivitySplash_IMG_mouth);
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mediaPlayer.start();
     }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        mediaPlayer.stop();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        mediaPlayer.stop();
+    }
+}

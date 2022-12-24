@@ -30,7 +30,6 @@ public class Fragment_List extends Fragment implements RecyclerViewInterface {
     private RecorsAdapter recAdapter;
 
     protected View view;
-    //private ArrayList<UserItems> userItemsArrayList = new ArrayList<>();
     private ArrayList<String> names = new ArrayList<>();
     private ArrayList<Integer> scores = new ArrayList<>();
 
@@ -60,11 +59,10 @@ public class Fragment_List extends Fragment implements RecyclerViewInterface {
         dataInitialize();
         findViews(view);
         initRecycler();
-
     }
 
     private void initRecycler() {
-        fragmentList_RV_records.setLayoutManager(new LinearLayoutManager(getContext()));//,LinearLayoutManager.VERTICAL,false
+        fragmentList_RV_records.setLayoutManager(new LinearLayoutManager(getContext()));
         fragmentList_RV_records.setHasFixedSize(true);
         recAdapter = new RecorsAdapter(getContext(),newDb2.getUserItems(),this);
         fragmentList_RV_records.setAdapter(recAdapter);

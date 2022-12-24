@@ -22,14 +22,12 @@ public class RecorsAdapter extends RecyclerView.Adapter<RecorsAdapter.MyViewHold
     private Context context;
     private ArrayList<UserItems> userItemsArrayList;
     private UserItems userItems;
-    //private CallBack_Location callBack_location;
 
     public RecorsAdapter(Context context, ArrayList<UserItems> userItemsArrayList,RecyclerViewInterface recyclerViewInterface) {
         this.context = context;
         this.userItemsArrayList = userItemsArrayList;
         this.recyclerViewInterface = recyclerViewInterface;
     }
-
 
     @NonNull
     @Override
@@ -43,7 +41,6 @@ public class RecorsAdapter extends RecyclerView.Adapter<RecorsAdapter.MyViewHold
         userItems = userItemsArrayList.get(position);
         holder.fragmentList_LBL_name.setText(userItems.getName());
         holder.fragmentList_LBL_score.setText(""+userItems.getScore());
-
     }
 
     @Override
@@ -72,9 +69,5 @@ public class RecorsAdapter extends RecyclerView.Adapter<RecorsAdapter.MyViewHold
                 }
             });
         }
-    }
-
-    public UserItems getItems(int i){
-        return userItemsArrayList.get(i);
     }
 }

@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Switch;
+import android.widget.Toast;
 
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.switchmaterial.SwitchMaterial;
@@ -18,6 +19,8 @@ public class Activity_Start extends AppCompatActivity {
     private Switch startActivity_SWC_speed;
     private Switch startActivity_SWC_state;
     private EditText startActivity_TXT_name;
+
+    private Toast toast;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,9 +46,12 @@ public class Activity_Start extends AppCompatActivity {
                     delay = 500; //slower
                 else
                     delay = 300; //faster
-                if (name.equals(""))
+                if (name.equals("")) {
+                    toast = Toast.makeText(Activity_Start.this, "YOU NEED TO FILL NAME! ", Toast.LENGTH_SHORT);
+                    toast.show();
                     startActivity_TXT_name.setHint("YOU NEED TO FILL ME!");
-                else
+                }
+                    else
                     openGame(state,delay,name);
             }
         });
