@@ -26,7 +26,6 @@ public class Fragment_List extends Fragment implements RecyclerViewInterface {
 
     private DataBase newDb2;
     private RecyclerView fragmentList_RV_records;
-    private UserItems userItems;
     private RecorsAdapter recAdapter;
 
     protected View view;

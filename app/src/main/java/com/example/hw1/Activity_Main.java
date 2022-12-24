@@ -67,14 +67,6 @@ public class Activity_Main extends AppCompatActivity {
 
     private String name;
 
-    /*final Handler handler = new Handler();
-    private Runnable runnable = new Runnable() {
-        @Override
-        public void run() {
-            handler.postDelayed(this, DELAY);
-        }
-    };*/
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

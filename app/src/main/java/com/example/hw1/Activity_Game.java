@@ -165,7 +165,7 @@ public class Activity_Game {
     public void checkIfEatPoision() {
         if (visible[NUM_OF_POIS_ROW - 1][currentPosition] == 1 || visible[NUM_OF_POIS_ROW - 1][currentPosition] == 5) {
             wrong++;
-            score-=10;
+            //score-=10;
             activityMain.updateLive();
             arrOfMouth.get(currentPosition).setImageResource(R.drawable.death);
             toast1.show();
@@ -180,7 +180,6 @@ public class Activity_Game {
         if (visible[NUM_OF_POIS_ROW - 1][currentPosition] == 2 || visible[NUM_OF_POIS_ROW - 1][currentPosition] == 3
         ||visible[NUM_OF_POIS_ROW - 1][currentPosition] == 4 || visible[NUM_OF_POIS_ROW - 1][currentPosition] == 6) {
             score += 10;
-            //activityMain.updateLive();
             arrOfMouth.get(currentPosition).setImageResource(R.drawable.lips);
             makeSound(R.raw.candysound);
             toast2.show();

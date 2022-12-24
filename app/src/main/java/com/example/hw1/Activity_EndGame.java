@@ -54,21 +54,6 @@ public class Activity_EndGame extends AppCompatActivity {
         if(newDb == null){
             newDb = new DataBase();
         }
-
-        /*String fromJSON2 = MySP.getInstance(this).getStringSP("MY_DB","");
-        DataBase newDb2 = new Gson().fromJson(fromJSON2,DataBase.class);
-
-        for (int i = 0; i < newDb2.getUserItems().size() ; i++) {
-            Log.d("LALA", ""+newDb2.getUserItems().get(i).getName());
-        }*/
-
-        //DataBase dataBase = new DataBase();
-
-        /*String json = new Gson().toJson(dataBase);
-        MySP.getInstance(this).putStringSP("MY_DB",json);
-
-        String fromJSON = MySP.getInstance(this).getStringSP("MY_DB","");
-        DataBase newDb = new Gson().fromJson(fromJSON,DataBase.class);*/
     }
 
     private void initViews() {
