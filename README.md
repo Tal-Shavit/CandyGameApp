@@ -7,8 +7,16 @@ If you ate a poison you lose a life, but if you ate candy your score will added 
 # How To Play
 Move left and right to avoid a poison and collect the candy
 You have 2 options.
+
+
 1. change the speed of things go down - slow/fass
+##SLOW
+
+##FAST
 2. change the player state - button/device motion(sensor)
+##BUTTON
+
+##DEVICE MOTION
 
 
 

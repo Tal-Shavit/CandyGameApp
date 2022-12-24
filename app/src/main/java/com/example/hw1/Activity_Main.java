@@ -270,13 +270,13 @@ public class Activity_Main extends AppCompatActivity {
             if(curPos >-3 && curPos<=3)
                 moveMouth(2);
             if(curPos<=-3 && curPos>-6)
-                moveMouth(1);
-            if(curPos>=-9 && curPos<=-6)
-                moveMouth(0);
-            if(curPos>3 && curPos<=6)
                 moveMouth(3);
-            if(curPos>6 && curPos<=9)
+            if(curPos>=-9 && curPos<=-6)
                 moveMouth(4);
+            if(curPos>3 && curPos<=6)
+                moveMouth(1);
+            if(curPos>6 && curPos<=9)
+                moveMouth(0);
         }
 
         @Override

@@ -43,6 +43,7 @@
             android:textOff="Slow"
             android:textOn="Fast"
             android:textStyle="bold"
+            android:textColor="@color/black"
             android:thumbTint="@color/orange"
             android:trackTint="@color/orange" />
 
@@ -64,6 +65,7 @@
             android:textOff="Button"
             android:textOn="Sensor"
             android:textStyle="bold"
+            android:textColor="@color/black"
             android:thumbTint="@color/green2"
             android:trackTint="@color/green2" />
 
@@ -83,7 +85,8 @@
             android:inputType="textPersonName|textCapWords"
             android:textColorHint="@color/black"
             android:textSize="30sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="@color/black"/>
 
 
     <LinearLayout
