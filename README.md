@@ -16,18 +16,18 @@ https://user-images.githubusercontent.com/117349966/209446538-ee0c70fe-da64-4bc7
 
 
 1. change the speed of things go down - slow/fass
-##SLOW
+#SLOW
 
 https://user-images.githubusercontent.com/117349966/209446581-0c8396e1-fb13-4e77-8587-1adf2f5e14f0.mp4
 
 
-##FAST
+#FAST
 
 https://user-images.githubusercontent.com/117349966/209446608-b919e8f4-8fba-42c5-9987-304e56dff515.mp4
 
 
 2. change the player state - button/device motion(sensor)
-##DEVICE MOTION
+#DEVICE MOTION
 
 https://user-images.githubusercontent.com/117349966/209446613-27d8c06f-9408-4d41-80ca-4fc7ced407f6.mp4
 
