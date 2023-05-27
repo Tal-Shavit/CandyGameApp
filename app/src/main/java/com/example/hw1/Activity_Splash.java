@@ -48,7 +48,6 @@ public class Activity_Splash extends AppCompatActivity {
 
             @Override
             public void onAnimationEnd(Animator animator) {
-                mediaPlayer.stop();
                 openStartScreen();
             }
 
