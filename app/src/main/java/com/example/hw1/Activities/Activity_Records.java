@@ -1,4 +1,4 @@
-package com.example.hw1;
+package com.example.hw1.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
@@ -6,14 +6,13 @@ import androidx.fragment.app.FragmentTransaction;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 
 import com.example.hw1.Fragments.Fragment_List;
 import com.example.hw1.Fragments.Fragment_Map;
 import com.example.hw1.Interfaces.CallBack_Location;
-import com.example.hw1.Interfaces.RecyclerViewInterface;
 import com.example.hw1.Models.UserItems;
+import com.example.hw1.R;
 import com.google.android.material.button.MaterialButton;
 
 
@@ -39,14 +38,21 @@ public class Activity_Records extends AppCompatActivity {// implements RecyclerV
         initView();
         initFragment();
         fragment_list.setCallBack_location(callBack_location);
-
-        SharedPreferences.Editor editor = getSharedPreferences("RECORDS", MODE_PRIVATE).edit();
-        editor.putString("USER_NAME", "no user name");
-        editor.apply();
+        sharedPreferences();
 
     }
 
+    private void sharedPreferences() {
+        SharedPreferences.Editor editor = getSharedPreferences("RECORDS", MODE_PRIVATE).edit();
+        editor.putString("USER_NAME", "no user name");
+        editor.apply();
+    }
+
     private void initView() {
+        onStartButton();
+    }
+
+    private void onStartButton() {
         EndActivity_BTN_start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -61,15 +67,22 @@ public class Activity_Records extends AppCompatActivity {// implements RecyclerV
     }
 
     private void initFragment() {
-        fragment_map = Fragment_Map.newInstance();
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.records_LAY_map, fragment_map);
-        transaction.commit();
+        initMap();
+        initList();
+    }
 
+    private void initList() {
         fragment_list = Fragment_List.newInstance();
         fragment_list.setCallBack_location(callBack_location);
         FragmentTransaction transaction1 = getSupportFragmentManager().beginTransaction();
         transaction1.add(R.id.records_LAY_list, fragment_list);
         transaction1.commit();
+    }
+
+    private void initMap() {
+        fragment_map = Fragment_Map.newInstance();
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.records_LAY_map, fragment_map);
+        transaction.commit();
     }
 }

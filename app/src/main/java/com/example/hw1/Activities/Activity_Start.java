@@ -1,4 +1,4 @@
-package com.example.hw1;
+package com.example.hw1.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,17 +9,14 @@ import android.widget.EditText;
 import android.widget.Switch;
 import android.widget.Toast;
 
+import com.example.hw1.R;
 import com.google.android.material.button.MaterialButton;
-import com.google.android.material.switchmaterial.SwitchMaterial;
 
 public class Activity_Start extends AppCompatActivity {
 
-    private MaterialButton startActivity_BTN_start;
-    private MaterialButton startActivity_BTN_records;
-    private Switch startActivity_SWC_speed;
-    private Switch startActivity_SWC_state;
+    private MaterialButton startActivity_BTN_start, startActivity_BTN_records;
+    private Switch startActivity_SWC_speed, startActivity_SWC_state;
     private EditText startActivity_TXT_name;
-
     private Toast toast;
 
     @Override
@@ -32,17 +29,22 @@ public class Activity_Start extends AppCompatActivity {
     }
 
     private void initViews() {
+        onStartGameButton();
+        onRecordsButton();
+    }
+
+    private void onStartGameButton() {
         startActivity_BTN_start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 int state;
                 int delay;
                 String name = startActivity_TXT_name.getText().toString();
-                if(startActivity_SWC_state.isChecked()==false)
+                if (startActivity_SWC_state.isChecked() == false)
                     state = 0;
                 else
                     state = 1;
-                if(startActivity_SWC_speed.isChecked()==false)
+                if (startActivity_SWC_speed.isChecked() == false)
                     delay = 500; //slower
                 else
                     delay = 300; //faster
@@ -50,12 +52,13 @@ public class Activity_Start extends AppCompatActivity {
                     toast = Toast.makeText(Activity_Start.this, "YOU NEED TO FILL NAME! ", Toast.LENGTH_SHORT);
                     toast.show();
                     startActivity_TXT_name.setHint("YOU NEED TO FILL ME!");
-                }
-                    else
-                    openGame(state,delay,name);
+                } else
+                    openGame(state, delay, name);
             }
         });
+    }
 
+    private void onRecordsButton() {
         startActivity_BTN_records.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -64,7 +67,7 @@ public class Activity_Start extends AppCompatActivity {
         });
     }
 
-    public void findViews(){
+    public void findViews() {
         startActivity_BTN_start = findViewById(R.id.startActivity_BTN_start);
         startActivity_BTN_records = findViewById(R.id.startActivity_BTN_records);
         startActivity_SWC_speed = findViewById(R.id.startActivity_SWC_speed);
@@ -74,9 +77,9 @@ public class Activity_Start extends AppCompatActivity {
 
     private void openGame(int state, int delay, String name) {
         Intent myIntent = new Intent(Activity_Start.this, Activity_Main.class);
-        myIntent.putExtra(Activity_Main.KEY_STATE,state);
-        myIntent.putExtra(Activity_Main.KEY_SPEED,delay);
-        myIntent.putExtra(Activity_Main.KEY_NAME,name);
+        myIntent.putExtra(Activity_Main.KEY_STATE, state);
+        myIntent.putExtra(Activity_Main.KEY_SPEED, delay);
+        myIntent.putExtra(Activity_Main.KEY_NAME, name);
         startActivity(myIntent);
     }
 

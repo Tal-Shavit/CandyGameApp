@@ -1,4 +1,4 @@
-package com.example.hw1;
+package com.example.hw1.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,11 +7,11 @@ import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.View;
 import android.view.animation.AccelerateInterpolator;
 import android.widget.ImageView;
-import android.widget.TextView;
+
+import com.example.hw1.R;
 
 public class Activity_Splash extends AppCompatActivity {
 
@@ -30,11 +30,10 @@ public class Activity_Splash extends AppCompatActivity {
         findViews();
 
         ActivitySplash_IMG_mouth.setVisibility(View.INVISIBLE);
-
         moveMouth(ActivitySplash_IMG_mouth);
     }
 
-    public void moveMouth(View view){
+    public void moveMouth(View view) {
         view.setVisibility(View.VISIBLE);
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
         int h = displayMetrics.heightPixels;
@@ -70,7 +69,7 @@ public class Activity_Splash extends AppCompatActivity {
         finish();
     }
 
-    public void findViews(){
+    public void findViews() {
         ActivitySplash_IMG_mouth = findViewById(R.id.ActivitySplash_IMG_mouth);
     }
 

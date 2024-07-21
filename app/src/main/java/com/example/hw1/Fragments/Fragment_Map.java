@@ -42,7 +42,6 @@ public class Fragment_Map extends Fragment implements CallBack_Location {
         supportMapFragment.getMapAsync(googleMap -> {
             this.google_Map = googleMap;});
 
-
         return view;
     }
 

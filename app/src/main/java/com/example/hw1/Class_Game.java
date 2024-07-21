@@ -4,45 +4,33 @@ import android.content.Context;
 import android.media.MediaPlayer;
 import android.os.VibrationEffect;
 import android.os.Vibrator;
-import android.util.Log;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-
+import com.example.hw1.Activities.Activity_Main;
 import com.google.android.material.imageview.ShapeableImageView;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Timer;
 
-public class Activity_Game {
+public class Class_Game {
 
     private Activity_Main activityMain;
-
     private final int NUM_OF_COL = 5;
     private final int NUM_OF_POIS_ROW = 7;
-    private int wrong = 0;
-    private int currentPosition = 2;
-    private int score = 0;
-    private int lives;
-
+    private int wrong = 0, currentPosition = 2, score = 0, countDown = 0, lives, countStaticDown;
     private Context context;
     private ArrayList<ShapeableImageView> arrOfMouth;
     private ShapeableImageView[][] matOfObjects;
     private int[][] visible;
     private LinearLayout panel_col;
-
     private Timer timer;
-    private Toast toast1;
-    private Toast toast2;
+    private Toast toast1, toast2;
     private Vibrator vibrator;
     private Random random;
-    private int countDown = 0;
-    private int countStaticDown;
 
-
-    public Activity_Game(int lives, Context context, Activity_Main activityMain, Toast toast1,Toast toast2, Vibrator vibrator, int countStaticDown) {
+    public Class_Game(int lives, Context context, Activity_Main activityMain, Toast toast1, Toast toast2, Vibrator vibrator, int countStaticDown) {
         random = new Random();
         this.context = context;
         arrOfMouth = new ArrayList<>(NUM_OF_COL);
@@ -66,7 +54,7 @@ public class Activity_Game {
         return score;
     }
 
-    public Activity_Game setScore(int score) {
+    public Class_Game setScore(int score) {
         this.score = score;
         return this;
     }
@@ -95,7 +83,7 @@ public class Activity_Game {
         return panel_col;
     }
 
-    public Activity_Game setPanel_col(LinearLayout panel_col) {
+    public Class_Game setPanel_col(LinearLayout panel_col) {
         this.panel_col = panel_col;
         return this;
     }
@@ -108,7 +96,7 @@ public class Activity_Game {
         return arrOfMouth;
     }
 
-    public Activity_Game setArrOfMouth(ArrayList<ShapeableImageView> arrOfMouth) {
+    public Class_Game setArrOfMouth(ArrayList<ShapeableImageView> arrOfMouth) {
         this.arrOfMouth = arrOfMouth;
         return this;
     }
@@ -117,7 +105,7 @@ public class Activity_Game {
         return currentPosition;
     }
 
-    public Activity_Game setCurrentPosition(int currentPosition) {
+    public Class_Game setCurrentPosition(int currentPosition) {
         this.currentPosition = currentPosition;
         return this;
     }
@@ -172,14 +160,13 @@ public class Activity_Game {
             toast1.show();
             makeSound(R.raw.vomit2);
             vibrator.vibrate(VibrationEffect.createOneShot(500, VibrationEffect.DEFAULT_AMPLITUDE));
-        }
-        else
+        } else
             arrOfMouth.get(currentPosition).setImageResource(R.drawable.openmouth);
     }
 
     public void checkIfEatCandy() {
         if (visible[NUM_OF_POIS_ROW - 1][currentPosition] == 2 || visible[NUM_OF_POIS_ROW - 1][currentPosition] == 3
-        ||visible[NUM_OF_POIS_ROW - 1][currentPosition] == 4 || visible[NUM_OF_POIS_ROW - 1][currentPosition] == 6) {
+                || visible[NUM_OF_POIS_ROW - 1][currentPosition] == 4 || visible[NUM_OF_POIS_ROW - 1][currentPosition] == 6) {
             score += 10;
             arrOfMouth.get(currentPosition).setImageResource(R.drawable.lips);
             makeSound(R.raw.candysound);
@@ -188,16 +175,14 @@ public class Activity_Game {
         }
     }
 
-    public void makeSound(int idSound){
+    public void makeSound(int idSound) {
         MediaPlayer mp = MediaPlayer.create(context, idSound);
         mp.start();
     }
 
-    public boolean isLose(){
+    public boolean isLose() {
         return lives == wrong;
     }
-
-
 
 
 }

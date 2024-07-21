@@ -1,11 +1,10 @@
-package com.example.hw1;
+package com.example.hw1.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import android.Manifest;
-import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
@@ -15,25 +14,22 @@ import android.widget.Toast;
 import com.example.hw1.Models.DataBase;
 import com.example.hw1.Models.MySP;
 import com.example.hw1.Models.UserItems;
+import com.example.hw1.R;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textview.MaterialTextView;
 import com.google.gson.Gson;
+
 import im.delight.android.location.SimpleLocation;
 
 public class Activity_EndGame extends AppCompatActivity {
 
     public static String KEY_NAME = "KEY_NAME";
     public static String KEY_SCORE = "KEY_SCORE";
-
     private MaterialTextView EndActivity_LBL_score;
-    private MaterialButton EndActivity_BTN_start;
-    private MaterialButton EndActivity_BTN_records;
-    private MaterialButton EndActivity_BTN_saveScore;
-
+    private MaterialButton EndActivity_BTN_start, EndActivity_BTN_records, EndActivity_BTN_saveScore;
     private String name;
     private int score;
-    private double lat;
-    private double lon;
+    private double lat, lon;
     private DataBase newDb;
     SimpleLocation location;
 
@@ -42,49 +38,60 @@ public class Activity_EndGame extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_end_game);
 
-        name  = getIntent().getStringExtra(KEY_NAME);
-        score = getIntent().getIntExtra(KEY_SCORE,0);
+        name = getIntent().getStringExtra(KEY_NAME);
+        score = getIntent().getIntExtra(KEY_SCORE, 0);
 
         findViews();
         initViews();
 
-        String fromJSON = MySP.getInstance(this).getStringSP("MY_DB1","");
-        newDb = new Gson().fromJson(fromJSON,DataBase.class);
+        String fromJSON = MySP.getInstance(this).getStringSP("MY_DB1", "");
+        newDb = new Gson().fromJson(fromJSON, DataBase.class);
 
-        if(newDb == null){
+        if (newDb == null) {
             newDb = new DataBase();
         }
     }
 
     private void initViews() {
         EndActivity_LBL_score.setText(name.toUpperCase() + " you lose!\n" + "Your score is " + score);
-        EndActivity_BTN_start.setOnClickListener(new View.OnClickListener() {
+        onStartButton();
+        onRecordButton();
+        onSaveScoreButton();
+    }
+
+    private void onSaveScoreButton() {
+        EndActivity_BTN_saveScore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                openStartScreen();
+                if (lat != 0.0 && lon != 0.0) {
+                    UserItems userItems = new UserItems().setScore(score).setName(name).setLat(lat).setLon(lon);
+                    newDb.getUserItems().add(userItems);
+
+                    String json = new Gson().toJson(newDb);
+                    MySP.getInstance(Activity_EndGame.this).putStringSP("MY_DB1", json);
+                    EndActivity_BTN_saveScore.setVisibility(View.INVISIBLE);
+                } else {
+                    Toast toast = Toast.makeText(Activity_EndGame.this, "Didn't get location", Toast.LENGTH_SHORT);
+                    toast.show();
+                }
             }
         });
+    }
+
+    private void onRecordButton() {
         EndActivity_BTN_records.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 openRecordsScreen();
             }
         });
-        EndActivity_BTN_saveScore.setOnClickListener(new View.OnClickListener() {
+    }
+
+    private void onStartButton() {
+        EndActivity_BTN_start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(lat != 0.0 && lon != 0.0){
-                    UserItems userItems = new UserItems().setScore(score).setName(name).setLat(lat).setLon(lon);
-                    newDb.getUserItems().add(userItems);
-
-                    String json = new Gson().toJson(newDb);
-                    MySP.getInstance(Activity_EndGame.this).putStringSP("MY_DB1",json);
-                    EndActivity_BTN_saveScore.setVisibility(View.INVISIBLE);
-                }
-                else{
-                   Toast toast = Toast.makeText(Activity_EndGame.this, "Didn't get location" , Toast.LENGTH_SHORT);
-                   toast.show();
-                }
+                openStartScreen();
             }
         });
     }

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -16,7 +15,7 @@
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label="Candy Game"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.HW1"
@@ -24,10 +23,10 @@
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyD1c6jZDoBUnyVxYZRGOlXedoEHwis02rc" />
+            android:value="AIzaSyCMdAUUnohJxlNI5FDeqhI8T_skmiOIB-4" />
 
         <activity
-            android:name=".Activity_Splash"
+            android:name=".Activities.Activity_Splash"
             android:exported="true">
             <meta-data
                 android:name="android.app.lib_name"
@@ -41,21 +40,21 @@
 
 
         <activity
-            android:name=".Activity_EndGame"
+            android:name=".Activities.Activity_EndGame"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".Activity_Records"
+            android:name=".Activities.Activity_Records"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".Activity_Start"
+            android:name=".Activities.Activity_Start"
             android:exported="true">
             <meta-data
                 android:name="android.app.lib_name"
@@ -63,7 +62,7 @@
 
         </activity>
         <activity
-            android:name=".Activity_Main"
+            android:name=".Activities.Activity_Main"
             android:exported="true">
             <meta-data
                 android:name="android.app.lib_name"
