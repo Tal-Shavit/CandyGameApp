@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class DataBase {
     private ArrayList<UserItems> userItems = new ArrayList<>();
 
-    public DataBase(){
+    public DataBase() {
 
     }
 

@@ -31,16 +31,17 @@ public class Fragment_Map extends Fragment implements CallBack_Location {
     }
 
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater,@Nullable ViewGroup container,@Nullable Bundle savedInstanceState) {
-        if(view==null)
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        if (view == null)
             view = inflater.inflate(R.layout.fragment_map, container, false);
 
 
-        SupportMapFragment supportMapFragment =(SupportMapFragment)
+        SupportMapFragment supportMapFragment = (SupportMapFragment)
                 getChildFragmentManager().findFragmentById(R.id.google_map);
 
         supportMapFragment.getMapAsync(googleMap -> {
-            this.google_Map = googleMap;});
+            this.google_Map = googleMap;
+        });
 
         return view;
     }
@@ -49,12 +50,12 @@ public class Fragment_Map extends Fragment implements CallBack_Location {
         double lat = userItems.getLat();
         double lon = userItems.getLon();
         String name = userItems.getName();
-        LatLng latLng = new LatLng(lat,lon);
-        MarkerOptions markerOptions=new MarkerOptions();
-        markerOptions.position(new LatLng(lat,lon));
+        LatLng latLng = new LatLng(lat, lon);
+        MarkerOptions markerOptions = new MarkerOptions();
+        markerOptions.position(new LatLng(lat, lon));
         markerOptions.title(name);
         google_Map.clear();
-        google_Map.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng,10));
+        google_Map.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 10));
         google_Map.addMarker(markerOptions);
     }
 

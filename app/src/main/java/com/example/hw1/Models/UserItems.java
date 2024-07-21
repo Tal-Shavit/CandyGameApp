@@ -2,10 +2,10 @@ package com.example.hw1.Models;
 
 public class UserItems {
 
-    private String name="";
-    private int score=0;
-    private double lat=0.0;
-    private double lon=0.0;
+    private String name = "";
+    private int score = 0;
+    private double lat = 0.0;
+    private double lon = 0.0;
 
     public UserItems() {
 

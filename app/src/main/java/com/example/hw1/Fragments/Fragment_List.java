@@ -39,9 +39,10 @@ public class Fragment_List extends Fragment implements RecyclerViewInterface {
         return fragment_list;
     }
 
-    public void setCallBack_location(CallBack_Location callBack_location){
+    public void setCallBack_location(CallBack_Location callBack_location) {
         this.callBack_location = callBack_location;
     }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,8 +50,9 @@ public class Fragment_List extends Fragment implements RecyclerViewInterface {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-       return view = inflater.inflate(R.layout.fragment_list, container, false);
+        return view = inflater.inflate(R.layout.fragment_list, container, false);
     }
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -63,17 +65,17 @@ public class Fragment_List extends Fragment implements RecyclerViewInterface {
     private void initRecycler() {
         fragmentList_RV_records.setLayoutManager(new LinearLayoutManager(getContext()));
         fragmentList_RV_records.setHasFixedSize(true);
-        recAdapter = new RecorsAdapter(getContext(),newDb2.getUserItems(),this);
+        recAdapter = new RecorsAdapter(getContext(), newDb2.getUserItems(), this);
         fragmentList_RV_records.setAdapter(recAdapter);
         recAdapter.notifyDataSetChanged();
     }
 
 
     private void dataInitialize() {
-        String fromJSON2 = MySP.getInstance(getContext()).getStringSP("MY_DB1","");
-        newDb2 = new Gson().fromJson(fromJSON2,DataBase.class);
+        String fromJSON2 = MySP.getInstance(getContext()).getStringSP("MY_DB1", "");
+        newDb2 = new Gson().fromJson(fromJSON2, DataBase.class);
 
-        if(newDb2 == null){
+        if (newDb2 == null) {
             newDb2 = new DataBase();
         }
     }

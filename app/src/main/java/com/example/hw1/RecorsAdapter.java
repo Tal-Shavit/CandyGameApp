@@ -23,7 +23,7 @@ public class RecorsAdapter extends RecyclerView.Adapter<RecorsAdapter.MyViewHold
     private ArrayList<UserItems> userItemsArrayList;
     private UserItems userItems;
 
-    public RecorsAdapter(Context context, ArrayList<UserItems> userItemsArrayList,RecyclerViewInterface recyclerViewInterface) {
+    public RecorsAdapter(Context context, ArrayList<UserItems> userItemsArrayList, RecyclerViewInterface recyclerViewInterface) {
         this.context = context;
         this.userItemsArrayList = userItemsArrayList;
         this.recyclerViewInterface = recyclerViewInterface;
@@ -40,7 +40,7 @@ public class RecorsAdapter extends RecyclerView.Adapter<RecorsAdapter.MyViewHold
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         userItems = userItemsArrayList.get(position);
         holder.fragmentList_LBL_name.setText(userItems.getName());
-        holder.fragmentList_LBL_score.setText(""+userItems.getScore());
+        holder.fragmentList_LBL_score.setText("" + userItems.getScore());
     }
 
     @Override
@@ -48,12 +48,12 @@ public class RecorsAdapter extends RecyclerView.Adapter<RecorsAdapter.MyViewHold
         return userItemsArrayList.size();
     }
 
-    public static class MyViewHolder extends RecyclerView.ViewHolder{
+    public static class MyViewHolder extends RecyclerView.ViewHolder {
 
         TextView fragmentList_LBL_score;
         TextView fragmentList_LBL_name;
 
-        public MyViewHolder(@NonNull View itemView, RecyclerViewInterface recyclerViewInterface){
+        public MyViewHolder(@NonNull View itemView, RecyclerViewInterface recyclerViewInterface) {
             super((itemView));
             fragmentList_LBL_name = itemView.findViewById(R.id.fragmentList_LBL_name);
             fragmentList_LBL_score = itemView.findViewById(R.id.fragmentList_LBL_score);
@@ -61,9 +61,9 @@ public class RecorsAdapter extends RecyclerView.Adapter<RecorsAdapter.MyViewHold
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if(recyclerViewInterface != null) {
+                    if (recyclerViewInterface != null) {
                         int position = getAdapterPosition();
-                        if(position != RecyclerView.NO_POSITION)
+                        if (position != RecyclerView.NO_POSITION)
                             recyclerViewInterface.onItemClick(position);
                     }
                 }
